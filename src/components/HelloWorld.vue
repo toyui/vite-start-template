@@ -1,13 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 defineProps<{ msg: string }>()
 
-const count = ref(0)
+let count = $ref(0)
+
+function add() {
+  ++count
+}
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
+  <button @click="add">{{ count }}</button>
 </template>
 
 <style scoped>
@@ -21,9 +24,9 @@ label {
 }
 
 code {
-  border-radius: 4px;
-  background-color: #eee;
   padding: 2px 4px;
+  background-color: #eee;
+  border-radius: 4px;
   color: #304455;
 }
 </style>
